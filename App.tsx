@@ -11,13 +11,13 @@ import FlatCards from './components/flatCards';
 import FacnyCards from './components/facnyCards';
 import ElevatedCards from './components/elevatedCards';
 import { ScrollView } from 'react-native';
+import EmployeeData from './components/employeeData';
 import ActionCards from './components/actionCards';
 import {
   SafeAreaProvider,
   SafeAreaView,
 
 } from 'react-native-safe-area-context';
-import actionCards from './components/actionCards';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,6 +31,7 @@ function App() {
           <FacnyCards />
           <ElevatedCards />
           <ActionCards />
+          <EmployeeData />
         </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>

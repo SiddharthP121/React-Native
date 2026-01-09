@@ -1,4 +1,4 @@
-import { StyleSheet,ScrollView, Text, View, Image, useWindowDimensions } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, Image, useWindowDimensions } from 'react-native';
 import React from 'react';
 import style from '../Css/styles';
 
