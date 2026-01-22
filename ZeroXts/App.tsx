@@ -7,6 +7,12 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
+import { trigger } from 'react-native-haptic-feedback';
+
+const options = {
+  enableVibrateFallback: true,
+  ignoreAndroidSystemSettings: false,
+};
 
 const App = () => {
   const [board, setBoard] = useState<(string | null)[]>(Array(9).fill(null));
@@ -38,8 +44,10 @@ const App = () => {
 
   const getStatus = () => {
     if (winner) {
+      trigger('impactHeavy', options);
       return `Winner: ${winner}`;
     } else if (board.every(square => square)) {
+      trigger('impactHeavy', options);
       return 'Draw!';
     } else {
       return `Next player: ${isXNext ? 'X' : 'O'}`;
@@ -93,6 +101,7 @@ const calculateWinner = (squares: (string | null)[]) => {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      trigger('rigid', options);
       return squares[a];
     }
   }
