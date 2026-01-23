@@ -17,7 +17,7 @@ import CurrencyButton from './components/CurrencyButton';
 function App(): React.ReactElement {
   const isDarkMode = useColorScheme() === 'dark';
   const [currencyType, setCurrencyType] = useState<string | null>(null);
-  const [amountAfterExchage, setAmountAfterExchage] = useState<number | null>(
+  const [amountAfterExchage, setAmountAfterExchage] = useState<string | null>(
     null,
   );
   const [amountInRupee, setAmountInRupee] = useState('');
@@ -37,7 +37,7 @@ function App(): React.ReactElement {
         textColor: '#000000',
       });
     } else {
-      const result = +(currencyElement.value * inputInRupee).toFixed(2);
+      const result = `${(currencyElement.value * inputInRupee).toFixed(2)} ${currencyElement.symbol}`;
       setAmountAfterExchage(result);
       setCurrencyType(currencyElement.name);
     }
